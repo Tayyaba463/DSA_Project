@@ -63,12 +63,12 @@ printf "1\nAli\nBiryani\n1\nSara\nKarahi\n2\n4\n6\n5\nAli\n3\n2\n7\nSara\n2\n8\n
 **What this does, step by step:**
 | Input | Menu action | Expected result |
 |---|---|---|
-| `1` → `Ali` / `Biryani` | Add order | `Order Added -> #1001` |
+| `1` → `Hafsa` / `Biryani` | Add order | `Order Added -> #1001` |
 | `1` → `Sara` / `Karahi` | Add order | `Order Added -> #1002` |
 | `2` | Show queue | Both orders listed, status `pending` |
-| `4` | Peek | `Next Order -> #1001 \| Ali \| Biryani` |
+| `4` | Peek | `Next Order -> #1001 \| Hafsa \| Biryani` |
 | `6` | Count | `Total Orders: 2` |
-| `5` → `Ali` | Search | `Found: #1001 Ali -> Biryani [pending]` |
+| `5` → `Hafsa` | Search | `Found: #1001 Hafsa -> Biryani [pending]` |
 | `3` | Serve (dequeue) | `Served: #1001 ...`, appended to `order_history.txt` |
 | `2` | Show queue | Only Sara's order remains |
 | `7` → `Sara` | Delete/cancel | `Order deleted.` |
@@ -80,7 +80,7 @@ After this run, check the generated files:
 
 ```bash
 cat data/active_orders.txt   # should be empty (both orders left the queue)
-cat data/order_history.txt   # should contain: 1001,Ali,Biryani,completed
+cat data/order_history.txt   # should contain: 1001,Hafsa,Biryani,completed
 ```
 
 ### 3. Manual test — edge cases on an empty queue
