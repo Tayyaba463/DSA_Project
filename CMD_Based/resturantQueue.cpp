@@ -58,7 +58,7 @@ void saveActiveOrders(Queue &q)
     Order* temp = q.front;
     while (temp != NULL)
     {
-        file << temp->id << "," << temp->customer << "," << temp->food << "," << temp->status << "\n";
+        file << temp->id << "," << temp->customer << "," << temp->food << "," << temp->status << endl;
         temp = temp->next;
     }
     file.close();
@@ -70,7 +70,7 @@ void addToHistory(Order* order)
     ofstream file(HISTORY_FILE.c_str(), ios::app);
     if (!file.is_open()) return;
 
-    file << order->id << "," << order->customer << "," << order->food << ",completed\n";
+    file << order->id << "," << order->customer << "," << order->food << ",completed." << endl;
     file.close();
 }
 
@@ -157,7 +157,7 @@ void showQueue(Queue &q)
 {
     Order* temp = q.front;
 
-    cout << "\n--- Active Queue ---\n";
+    cout << "\n--- Active Queue ---" << endl;
     if (temp == NULL)
     {
         cout << "(empty)\n";
@@ -180,7 +180,7 @@ void showLinkedList(Order* head)
         return;
     }
 
-    cout << "\n--- Linked List ---\n";
+    cout << "\n--- Linked List ---" << endl;
 
     Order* temp = head;
     while (temp != NULL)
