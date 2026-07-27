@@ -4,11 +4,11 @@
 
 using namespace std;
 
-// File paths (same naming style as main backend.cpp)
+
 const string ACTIVE_FILE = "data/active_orders.txt";
 const string HISTORY_FILE = "data/order_history.txt";
 
-// ===== NODE =====
+
 struct Order
 {
     int id;
@@ -18,14 +18,14 @@ struct Order
     Order* next;
 };
 
-// ===== QUEUE =====
+
 struct Queue
 {
     Order* front;
     Order* rear;
 };
 
-int nextId = 1001;   // simple auto-increment id, same style as main backend
+int nextId = 1001;  
 
 // ===== INIT =====
 void initQueue(Queue &q)
@@ -49,7 +49,7 @@ void enqueue(Queue &q, int id, string name, string food)
     }
 }
 
-// ===== SAVE FILE (rewrites full active queue, same idea as saveActiveOrders in main backend) =====
+// ===== SAVE FILE =====
 void saveActiveOrders(Queue &q)
 {
     ofstream file(ACTIVE_FILE.c_str());
@@ -64,7 +64,7 @@ void saveActiveOrders(Queue &q)
     file.close();
 }
 
-// ===== SAVE TO HISTORY (append, same idea as addToHistory in main backend) =====
+// ===== SAVE TO HISTORY =====
 void addToHistory(Order* order)
 {
     ofstream file(HISTORY_FILE.c_str(), ios::app);
@@ -121,7 +121,7 @@ int countOrders(Order* head)
     return count;
 }
 
-// ===== DELETE (cancel order, mirrors cancelOrder in main backend) =====
+// ===== DELETE =====
 void deleteOrder(Queue &q, string name)
 {
     Order* temp = q.front;
@@ -193,7 +193,7 @@ void showLinkedList(Order* head)
     }
 }
 
-// ===== MAIN =====
+
 int main()
 {
     system("mkdir data 2>nul || mkdir -p data");
